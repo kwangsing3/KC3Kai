@@ -1,0 +1,64 @@
+{
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.dmm.com/*"
+      ],
+      "js": [
+        "content/cookie.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "unlimitedStorage",
+    "storage",
+    "downloads",
+    "downloads.shelf",
+    "tabs",
+    "notifications",
+    "cookies",
+    "activeTab",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*.dmm.com/*",
+    "*://*.kan-colle.com/*",
+    "*://203.104.209.7/*",
+    "*://kcwiki.github.io/*",
+    "*://www.dmm.com/*",
+    "*://osapi.dmm.com/*",
+    "*://203.104.209.71/*",
+    "*://kcwiki.github.io/*",
+    "file://*/debug.html"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*"
+      ],
+      "matches": [
+        "*://www.dmm.com/*",
+        "*://osapi.dmm.com/*",
+        "*://203.104.209.71/*",
+        "*://kcwiki.github.io/*",
+        "*://203.104.209.7/*"
+      ]
+    }
+  ]
+
+}
